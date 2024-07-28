@@ -1,0 +1,349 @@
+ARRAY =>
+
+Declaration -> jb variable declare kr dete h
+Initialisation -> jb first time value dete hai
+Assignation -> jb repeatedly value de rhe h
+New -> memory space create krta h
+
+-- METHODS/Functions --
+Function = jo bina class ke survive kr le vo function
+Method = bina class ke bnaye nhi ja skte....... ex - main() method
+
+prototype signature definition ->  public static void main(String[] args)
+method ki body -> {}
+
+public static - specifiers, modifiers
+void - return type
+main -> name
+(String[] args) - arguments
+
+Access specifier/modifier ->
+empty - default (invisible)
+public
+private
+protected
+
+non access specifier -> static
+
+static ->
+agr lga hua h to call by class name
+non-static ->
+agr nhi lga hua h to call by object
+
+Return type -> (kya return krega)
+void - empty(do not return any value)
+iski jgh koi bhi valid java datatype can be placed
+
+main method ->
+sensible name hona chahiye
+camel case notation hona chahiye
+
+(String[] args) argument ->
+raw inputs
+multiple ho skte hai separated by ','
+
+EXAMPLE ->
+aloo -> machine -> sona
+(arguments) -> (body) -> (return)
+
+Benefits of method ->
+readability , reusability , debugging
+
+
+public static int strong(int n) -> isme jo int n hai vo formal value h
+int ans = strong(num); -> ye jo main me pass kia h vo actual value h iski xerox bhji h
+or ye pass by value kehlata h jisme xerox bhjte h
+
+
+pass by reference hota h pura access jisme dete h container ka usme tum kuch bhi kro or muje maan na pdega
+JAVA SUPPORT NHI KRTA H PASS BY REFEREiNCE, JAVA SIRF PASS BY VALUE SUPPORT KRTA HAI
+
+
+RULE ->
+Formal parameter - they do not affect actual parameter java me
+objects ke kbhi duplicate nhi jate
+
+VAR ARGS ->
+variable length argument (int... a) var args
+array khud bna ke pass krna pdta agr [] use kre to
+or ye var args dono value or array dono le lega but ye value ko bhi array bna dega
+ye jitna bhi do sb utha leta h
+
+2D/3D Array ->
+there is nothing like 2d or 3d its combination of 1d array's
+array of references of 1d array
+jitna dimension bnao utne dabbe
+int arr[][] = new int[3][4]
+int arr[][] = new int[3][2][4]
+{ { {1,2,3,4},{4,6,7,8} }, { {9,10,11,12},{13,14,15,16} }, { {17,18,19,20},{21,22,23,24} } }
+
+arr[][] = {{1}}
+arr[][] = {{1,2,3},{4,5,6},{7,8,9}} (3*3 ka )
+
+
+NULLPOINTEREXCEPTION ->
+    int[] b = null;
+    sout(b[1]);
+    null aayega or arrayindexoutofboundexception nhi aayega kyuki b sirf reference de rha h kisi ko point nhi kr rha
+
+OOPS ->
+class - design/prototype/mould/saancha...jisse bna vo class
+object - implementation....jo bna vo object....data alg aayega bhale hi hai same dikhne vle mould hai.....its is identified by unique id or reference
+ex - form(sheryians ka form ka design) - class
+     uski n copies bni - object
+     sbne details alg bhri - data
+
+object - key-value pair ka store
+ek object dusre object ya reference of object ko point kr skta h
+
+jitne bhi datatypes hum create krte h jb new keyword use hota h usse default value me string me null and int ko 0 milta h
+
+VIA REFERENCE ->
+class Student {  // student ek datatype bn chuka h apna bnaya hua (non-primitive)
+    String name;
+    int rollNo;
+    String college;
+}
+
+public class Demo {
+    public static void main(String[] args) {
+        Student s1 = new Student(); // data ko via reference bhj rhe h but isme data duplicacy ho rhi h
+        s1.name = "Blabla"; // string - array of characters hota h jisko ye object point kr rha h
+        s1.rollNo = 23;
+        s1.college = "LNCT";
+
+        Student s2 = new Student();
+        s2.name = "hello";
+        s2.rollNo = 3;
+        s2.college = "JNCT";
+    }
+}
+
+
+THIS ->
+this keyword POINTS TO CURRENT CALLING OBJECT
+
+CONSTRUCTOR ->
+data ko initialize krna
+return type nhi hota h
+class ke name pr bnta h
+
+  Student2 s1 = new Student2("Anshita",12,"JNCT"); // parametrized contructor
+  default constructor -
+  ek empty constructor which is always there kind off invisible
+  public Student2(){}
+  Student2 s2 = new Student2(); // default constructor
+
+TOSTRING - >
+readable form me bnane ke liye data ko
+
+Instance and object ek hi word h
+
+jitne jyda constructor bnayenge same name hoga to use contructor OVERLOADING bolenge
+
+if we'll provide datatype to constructor then it'll act like java method
+eg -
+    public Student2(){}
+     public void Student2(){}
+
+TO AVOID OVERLOADING parameter pass kr do ->
+early binding / compile time polymorphism ->
+ public static void m1(){}
+ main - m1()
+
+ public static void m1(int n){} ->
+ main - m1(22)
+
+
+STRING ->
+heap me jo kuh bhi bnta h vo complex data hota h
+Sting constraints pool me save hota h...pool me bnta h to shared memory milti h for memory optimization
+Strings instances are immutable that is they can not be changed, however if u try to change the
+		   value a new instance/object will be created in the memory.
+
+string ko agr koi nayi value de rhe h to uska reference/connection purane se tut ke naye vle se join ho jta h
+String s = "abcd";
+s = "lab";
+
+        String s1 = "abcd";
+        String s2 = "abcd";
+        String s3 = new String("abcd") ;
+        String s4 = new String("abcd") ;
+        print(s1==s2) -> references compare ho rhe h to true return krega
+        print(s1==s3) -> references alg alg h to false return krega
+        print(s2==s3) -> references alg alg h to false return krega
+
+
+s1.compareTo(s2) ->
+      -  s1<s2
+      0  s1==s2
+      +  s1>s2
+s1.equals(s2) ->
+ye values ko compare krta h
+print(s1.equals(s2))
+print(s1.equals(s3))
+print(s2.equals(s3))
+ab ye sb true return krenge kyuki value compare ho rhi h
+
+
+METHOD ->
+charAt(int index) -> char bta dega jo bhi likha hoga uski jgh
+int compareTo(String -> ek integer vvalue return krega (lexicographically checking or alphabetically) isme ascii ka diff return kr deta h agr alg alg aata h to
+comapretoignorecase -> isme uooercase lowercase ignore ho jte h
+concat -> str+str ko jodta h
+endswith("suffix") -> true ya false ye sawal krta h jo bhi suffix dia h uske akhri se check hona chlu ho jta h
+equals -> true/false compare krne ke liye 0-1 me answer nhi chahiye
+equalsignorecase -> true/false compare krne ke liye jisme ignoreho jyega cases
+indexof("the") -> index bta dega... pehla matching dhundhta h
+indexof(string str,fromindex) -> jaha se index de vaha se searching chlu krega aage ke ignore krega
+isblank -> visibility h ya nhi....true ya false dega
+isempty -> stuff h ya nhi data pe kaam krega....true ya false dega
+lastindexof -> peeche se check krega
+lastindexof(string str,fromindex) -> same
+length() -> length nikal ke dega...ye property nhi h method h
+replace -> purane char ko naye char se replace kr dega
+startswith -> ends with jesa hi
+substring - > bdi si string me se chota sa hissa chahiye to jese(4,8)->4,5,6,7 isme 8 include nhi hoga....agr sirf beginning di to end tk jyega string ke
+tochararray -> string ko array me convert kr deta h
+tolowercase ->
+touppercase ->
+trim -> cutting krta h....pehle visible se akhri visible tk rkhta h or baki ka trim kr deta h
+
+GarbageCollector -> java ka garbage collect krta h lekin apni cycle pr dod dod ke nhi aata jb aana hota h tb hi aayega
+
+STRINGBUILDER API -> Addon h
+scanner and string me object bnaya jata h
+string boht jyda time and space lete h...ye immutable hota h mtlb ki naya space bnta h usme purana data copy hota h then naya data add krte h
+immutability - jb bhi data inc ya dec hoga hume pura infra change and shift krna pdega, space speed time teeno hi backlash drawbacks h
+mutability - change jb required hoga tb hoga, speed milti h but space waste jaa rha h mtlb risk rehta h, extra space leke bethta h ye uss extra space ko buffer kehte h
+
+stringbuilder ka fized size 16 hota h....multiply by 2 krta h size ko jb jb use hota h
+supporting class h......datatype nhi h
+no of chairs -> capacity
+no of students -> length
+
+Constructors
+			--StringBuilder() - 16 characters capacity
+			--StringBuilder(int n) - N characters capacity
+			--StringBuilder(String str) - Length of str + 16 characters capacity
+
+string -> stringbuilder -> string
+
+reverse -> reverse kr dega
+deletecharat -> chlti sstring me se ek char ko delete kr dega
+delete -> start se end tk pur char ko delete kr dega
+setcharat -> replace
+insert -> beech me daal dega
+insert offset -> kitne aage khiskana h phir enter krna h
+
+
+WRAPPER CLASS ->
+primitive ko non-primitive bnane ke liye wrapper class use hoti h
+primitives ko oops ki power de deta h
+box me rkhne se capabilities bd jti h
+int a = 52;
+Integer q = 45;
+Integer - object bn rha h... fayde milenege jese q. me methods milenge
+seedhe value de dete h or usko object bnane ka process boxing kehte h or kyuki automatic hoti h to autoboxing
+value ko phir se bahar nikl ke operations perform krana ko unboxing kehte h or ye bhi automatic hoti h
+initialize kr skte h null ke saath agr koi data nhi rkhna h to jese 0
+Integer num = null;
+Integer a = 43;
+a.intValue() isko unboxing kehte h ye value nikal ke dega
+
+
+converting a string into respective datatype is called parsing
+parseInt
+parseByte
+parseDouble
+
+Wrapper to String
+String to Wrapper
+
+InputStreamReader -> puri line uthata h or sirf string me lega or phir respective datatype me kr lena
+char by char read krta h
+space se separation nhi leta h
+BUFFERREADER api h jo inputstreamreader deta h
+
+COLLECTION FRAMEWORK
+bike - abstract concept, rules declared h
+ola - collectable h jo rules follow krega apne hisab se
+
+list -
+single values
+collection -> list -> arraylist,linkedlist,vector->stack
+collection -> queue -> priorityqueue,
+
+
+
+ARRAYLIST ->
+
+
+
+Hashing ->
+add,remove,search - o(1) average me de de use kehte h hashed data structure
+o(1) - mtlb exact ek hi step me
+Time complexity reduce krne ke liye hash ka use krenge
+
+HASHSET ->
+searching in o(1)
+reduce time complexity
+does not contain duplicate values
+
+HASHMAP ->
+map - unique value and key ka pair, entries pe kaam krta h
+entry - key and value ka pair
+example - <Integer, String>
+set dobara se rkhta hi ni h or map purane vle ko bahar fenk ke naya daal deta h
+
+key duplicate ho skti h value nhi
+
+
+
+String constructor ko agr char array pass kia to vo string bn jta h
+
+Abstraction ->
+hiding some part of code or data
+0-100% security deti h pura 100 nhi deti kyuki ek abstract class me dono non abstract method + abstract method dono likh skte h or user non abstract class dekh skta h
+uninstance created....abstract class ka object nhi bna skte
+
+
+lifecycle of object ->
+class load(static,variable vgera vgera load hota h) -> object creation -> constructor -> destructor -> terminate
+
+Static -> sbhi access kr skte h.....globally declare kr dete h
+variable ko static bnaya to ek hi baar bnega and apni use ke hisab se hr baar call ya access kr skte h or nhi bnaya static to hr baar bnega memory me
+
+while(sc.hasNext()) -> mtlb jb tk data h tb tk chlte chlo
+
+
+cmd commands->
+drive change krni h to -> E:
+ek baar peechle aane ke liye -> cd..
+andr jane ke liye -> cd users
+folders and files pta krna h to -> dir
+screen clear krna h to -> cls
+folder bnana h to -> mkdir temp
+remove krna h to -> rmdir temp
+tree format me dekhna h to -> tree
+cmd pr run krwana h to pehle uss file tk jao(location) ->
+   i) compile krwana pdega to -> javac Demo.java
+   ii) phir cmd pr likho next command -> java Demo
+
+
+Time Complexity ->
+1) Big O -> o() atmost, upper bound
+2) theta -> combination of lower & upper bound
+3) omega -> atleast, lower bound
+
+o(1) -> constant complexity, fixed figure de de to bhi constant, linear complexity
+
+Logarithmic complexity log(n) -> drastically execution km hote jte h
+
+Quadratic complexity o(n^2)
+cubic complexity o(n^3)
+exponential complexity 2^n, 3^n, 4^n etc
+o(n!) ye 2^n se bhi bda hota h
+upper bound hi hogi complexity if puche to for example -> 4n^2 + nlogn+ logn to isme n^2 hogi complexity
+
+
